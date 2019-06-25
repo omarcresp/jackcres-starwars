@@ -2,7 +2,7 @@ export interface Films {
     count: number;
     next?: string;
     previous?: string;
-    films: Film[];
+    results: Film[];
 }
 
 export interface Film {

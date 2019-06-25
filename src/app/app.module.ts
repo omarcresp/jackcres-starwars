@@ -13,7 +13,7 @@ import { SwService } from './services/sw.service';
 const appRoutes: Routes  = [
   { path: '', component: HomeComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'character/:nick', component: CharacterComponent },
+  { path: 'characters/:episodeId', component: CharacterComponent },
 ];
 
 @NgModule({

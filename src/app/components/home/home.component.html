@@ -1,3 +1,5 @@
 <p *ngFor="let film of films">
-  {{ film.episode_id }}. {{ film.title }} - {{film.director}} [{{opening_crawl}}]
+  {{ film.episode_id }}.
+  <b>{{ film.title }}</b> - {{film.director}}
+  [<a routerLink="/characters/{{ film.episode_id }}">See characters</a>]
 </p>
