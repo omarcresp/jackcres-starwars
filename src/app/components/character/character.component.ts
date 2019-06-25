@@ -10,6 +10,25 @@ import { Characters } from 'app/interfaces/characters';
 })
 export class CharacterComponent implements OnInit {
   characters: Characters[];
+  settings = {
+    actions: {
+      add: false,
+      edit: false,
+      delete: false
+    },
+    hideSubHeader: true,
+    columns: {
+      name: {
+        title: 'Name'
+      },
+      hair_color: {
+        title: 'Hair color'
+      },
+      gender: {
+        title: 'Gender'
+      }
+    }
+  };
 
   constructor(
     private activatedRoute: ActivatedRoute,
