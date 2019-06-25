@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ const appRoutes: Routes  = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    Ng2SmartTableModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
