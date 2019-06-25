@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/observable/forkJoin';
+import 'rxjs/add/observable/from';
 import { Films, Film } from 'app/interfaces/films';
 import { Observable } from 'rxjs/Observable';
 
@@ -33,20 +34,18 @@ export class SwService {
   getCharacters(episodeId) {
     return this.getCharactersUrl(episodeId)
       .map(
-        this.resolveCharacter
+        characters => {
+          const gets: Observable<Response>[] = [];
+
+          characters.forEach(url => {
+            const get = this.$http.get(`${url}?format=json`);
+
+            gets.push(get);
+          })
+
+          return Observable.forkJoin(gets)
+        }
       )
-  }
-
-  resolveCharacter(characters) {
-    const gets: Observable<any>[] = [];
-    const self = this;
-
-    characters.forEach(url => {
-      const get = self.$http.get(`${url}/?format=json`);
-
-      gets.push(get);
-    })
-
-    return Observable.forkJoin(gets)
+      .map(val => val.map(responses => responses.map(response => response.json())));
   }
 }
