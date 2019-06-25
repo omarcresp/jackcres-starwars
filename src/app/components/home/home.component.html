@@ -1,7 +1,10 @@
 <div class="film-container">
   <div class="sw-film" *ngFor="let film of films">
-    <span class="film-episode"># {{ film.episode_id }}</span>
-    <span class="film-director">{{film.director}}</span>
+    <span class="film-episode">Episode #{{ film.episode_id }}</span>
+    <span class="film-director">
+      <span class="icon">🎬</span>
+      {{film.director}}
+    </span>
 
     <h3 class="film-title">{{ film.title }}</h3>
 

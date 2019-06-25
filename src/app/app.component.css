@@ -1,18 +1,21 @@
 .container {
     overflow-y: auto;
     height: 100%;
+    display: grid;
+    grid-template-rows: 91px 0px 1fr 50px;
 }
 
 .header {
     padding: 0 30px;
 }
 
-.footer {
-    text-align: center;
+.header h1 {
+    cursor: pointer;
+    display: inline-block;
 }
 
-.icon {
-    font-family: Emoji;
+.footer {
+    text-align: center;
 }
 
 .footer-link {
