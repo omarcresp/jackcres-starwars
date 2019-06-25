@@ -16,6 +16,9 @@ export class CharacterComponent implements OnInit {
       edit: false,
       delete: false
     },
+    attr: {
+      class: 'characters-table'
+    },
     hideSubHeader: true,
     columns: {
       name: {
