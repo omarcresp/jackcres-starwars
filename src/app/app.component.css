@@ -3,10 +3,19 @@
     height: 100%;
     display: grid;
     grid-template-rows: 91px 0px 1fr 50px;
+    grid-auto-columns: 100%;
 }
 
 .header {
     padding: 0 30px;
+}
+
+@media screen and (min-width: 968px) {
+    .header {
+        text-align: center;
+        font-size: 14px;
+        padding: 0 5px;
+    }
 }
 
 .header h1 {
