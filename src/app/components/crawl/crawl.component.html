@@ -1,0 +1,14 @@
+<div class="crawl-container">
+  <div class="fade"></div>
+
+  <section class="star-wars">
+    <div class="crawl" (animationend)="end">
+      <div class="title">
+        <p>Episode {{ episode }}</p>
+        <h1>{{ title }}</h1>
+      </div>
+
+      <p *ngFor="let item of crawl">{{ item }}</p>
+    </div>
+  </section>
+</div>

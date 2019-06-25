@@ -1,6 +1,6 @@
 {
-  "name": "solution-ans-ng2",
-  "version": "0.0.0",
+  "name": "jackcres-starwars",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "./node_modules/.bin/ng",

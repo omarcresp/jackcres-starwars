@@ -20,4 +20,6 @@ export interface Film {
     created: string;
     edited: string;
     url: string;
+    showCrawl: boolean;
+    episode: string;
 }

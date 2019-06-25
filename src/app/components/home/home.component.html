@@ -1,13 +1,22 @@
 <div class="film-container">
   <div class="sw-film" *ngFor="let film of films">
-    <span class="film-episode">Episode #{{ film.episode_id }}</span>
-    <span class="film-director">
-      <span class="icon">🎬</span>
-      {{film.director}}
-    </span>
+    <ng-container *ngIf="!film.showCrawl" [@inOutAnimation]>
+      <span class="film-episode">Episode #{{ film.episode_id }}</span>
+      <span class="film-director">
+        <span class="icon">🎬</span>
+        {{film.director}}
+      </span>
 
-    <h3 class="film-title">{{ film.title }}</h3>
+      <h3 class="film-title" (click)="toggleCrawl(film.episode_id)">{{ film.title }}</h3>
 
-    <a class="film-link" routerLink="/characters/{{ film.episode_id }}">See characters</a>
+      <a class="film-link" routerLink="/characters/{{ film.episode_id }}">See characters</a>
+    </ng-container>
+
+    <app-crawl
+      *ngIf="film.showCrawl"
+      [@inOutAnimation]
+      [crawl]="film.opening_crawl"
+      [title]="film.title"
+      [episode]="film.episode"></app-crawl>
   </div>
 </div>

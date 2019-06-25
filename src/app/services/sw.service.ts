@@ -16,9 +16,28 @@ export class SwService {
     return 'https://swapi.co/api';
   }
 
-  getFilms (): Observable<Films> {
+  getFilms (): Observable<Film[]> {
+    const episode = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
+
     return this.$http.get(`${this.swUrl}/films/?format=json`)
-      .map(response => response.json());
+      .map(response => response.json())
+      .map(response => response.results.map(film => {
+        film.showCrawl = false
+        film.episode = episode[film.episode_id - 1]
+
+        film.opening_crawl = JSON.stringify(film.opening_crawl)
+        film.opening_crawl = film.opening_crawl.split('\\r\\n\\r\\n')
+        if (!film.opening_crawl[2]) {
+          film.opening_crawl = film.opening_crawl[0].split('\\r\\n \\r\\n');
+        }
+        film.opening_crawl = film.opening_crawl.map(item => {
+          const newitem = item.split('\\r\\n');
+
+          return newitem.join(' ')
+        })
+
+        return film
+      }));
   }
 
   getFilmByEpisode(episodeId): Observable<Film> {
