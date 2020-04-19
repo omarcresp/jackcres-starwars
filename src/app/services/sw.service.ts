@@ -13,7 +13,7 @@ export class SwService {
   constructor(private $http: Http) { }
 
   private get swUrl () {
-    return 'https://swapi.co/api';
+    return 'https://swapi.dev/api';
   }
 
   getFilms (): Observable<Film[]> {
